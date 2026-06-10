@@ -5,7 +5,7 @@ const orderController = require("../controllers/order.controller");
 const authMiddleware = require("../middleware/authMiddleware");
 const adminMiddleware = require("../middleware/adminMiddleware");
 
-const AdminAuthMiddleware = require("../middleware/AdminAuthMiddleware");
+const AdminAuthMiddleware = require("../middleware/adminAuthMiddleware");
 
 router.post(
   "/orders",

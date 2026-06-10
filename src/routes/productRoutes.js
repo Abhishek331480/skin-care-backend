@@ -6,7 +6,7 @@ const upload = require("../middleware/upload")
 
 const authMiddleware = require("../middleware/authMiddleware");
 // const adminMiddleware = require("../middleware/adminMiddleware");
-const AdminAuthMiddleware = require("../middleware/AdminAuthMiddleware");
+const AdminAuthMiddleware = require("../middleware/adminAuthMiddleware");
 
 // create product
 router.post("/products",AdminAuthMiddleware,upload.array("images", 4),productController.createProduct);
