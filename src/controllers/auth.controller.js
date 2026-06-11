@@ -127,7 +127,7 @@ await newUser.save();
 
 const verifyUrl = `${process.env.FRONTEND_URL}/verify-email/${emailVerificationToken}`;
 
-await sendEmail({
+ sendEmail({
   to: newUser.email,
   subject: "Verify your SkinCare account",
   html: `
@@ -142,6 +142,10 @@ await sendEmail({
       </a>
     </div>
   `,
+}).then((sent) => {
+  if (!sent) {
+    console.log("Verification email failed for:", email);
+  }
 });
  
        const token = jwt.sign({ id: newUser._id , role:newUser.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
