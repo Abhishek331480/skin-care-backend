@@ -44,19 +44,22 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async ({ to, subject, html }) => {
   try {
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `SkinCare Store <${process.env.FROM_EMAIL}>`,
       to,
       subject,
       html,
     });
 
-    console.log("Email sent successfully:", data);
+    if (error) {
+      console.error("Email send error:", error);
+      return false;
+    }
 
+    console.log("Email sent successfully:", data);
     return true;
   } catch (error) {
-    console.error("Email send error:", error);
-
+    console.error("Email send exception:", error);
     return false;
   }
 };
