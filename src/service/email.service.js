@@ -35,7 +35,7 @@ const nodemailer = require("nodemailer");
 //     return false;
 //   }
 // };
-await sendEmail({
+ sendEmail({
   to: "abhishekthakur412002@gmail.com",
   subject: "Mailtrap Test",
   html: "<h1>Hello Abhishek</h1>",
